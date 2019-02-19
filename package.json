@@ -4,8 +4,7 @@
   "description": "This repo contains code for the Kapwing technical interview project.",
   "scripts": {
     "build": "(cd client/ && yarn build)",
-    "start": "(cd client/ && yarn start) & (cd server/ && FLASK_APP=index.py FLASK_DEBUG=1 pipenv run python3 -m flask run)",
-    "heroku-postbuild": "echo This runs afterwards."
+    "start": "(cd client/ && yarn start) & (cd server/ && FLASK_APP=index.py FLASK_DEBUG=1 pipenv run python3 -m flask run)"
   },
   "eslintConfig": {
     "extends": "react-app"
