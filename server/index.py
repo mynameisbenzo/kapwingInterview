@@ -1,12 +1,15 @@
 """
-  This is a sample python function that prints "hello world!"
+This is a simple flask server 
+that handles requests from the frontend
 """
-
-'''
-  Simple Hello World python function
-'''
+from flask import Flask
+app = Flask(__name__)
 
 
+@app.route('/')
 def hello_world():
-  print('hello world!')
-  return
+  return 'Hello, World!'
+
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', debug=True)
