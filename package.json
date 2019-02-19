@@ -5,7 +5,7 @@
   "scripts": {
     "build": "(cd client/ && yarn build)",
     "start": "(cd client/ && yarn start) & (cd server/ && FLASK_APP=index.py FLASK_DEBUG=1 pipenv run python3 -m flask run)",
-    "heroku-postbuild": "(cd client/ && yarn build)"
+    "heroku-postbuild": "echo This runs afterwards."
   },
   "eslintConfig": {
     "extends": "react-app"
