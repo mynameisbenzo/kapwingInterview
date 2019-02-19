@@ -5,3 +5,5 @@ To run the flask server, use the following command:
 heroku create
 git push heroku master
 heroku ps:scale web=1
+heroku buildpacks:add heroku/python
+heroku buildpacks:add heroku/nodejs
