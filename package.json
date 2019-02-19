@@ -1,0 +1,14 @@
+{
+  "name": "kapwing-interview",
+  "version": "1.0.0",
+  "description": "This repo contains code for the Kapwing technical interview project.",
+  "scripts": {
+    "build": "(cd client/ && yarn build)",
+    "start": "(cd client/ && yarn start) & (cd server/ && FLASK_APP=index.py FLASK_DEBUG=1 pipenv run python3 -m flask run)"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {},
+  "license": "MIT"
+}
