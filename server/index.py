@@ -5,13 +5,18 @@ that handles requests from the frontend
 import os
 from flask import Flask, send_from_directory
 
-client_folder = '../client/build/'
+CURRENT_DIR = os.path.dirname(__file__)
+client_folder = CURRENT_DIR + '/../client/build/'
 app = Flask(__name__, static_folder=client_folder)
 
 # Serve React App
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
+  print()
+  print('serving path:', path)
+  print('client_folder:', client_folder)
+  print()
   if path != "" and os.path.exists(client_folder + path):
     return send_from_directory(client_folder, path)
   else:
