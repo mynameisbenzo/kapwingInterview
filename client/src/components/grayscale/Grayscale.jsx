@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Upload from "components/upload/Upload.jsx";
 import styles from "./Grayscale.module.scss";
 
 class Grayscale extends Component {
@@ -9,8 +10,9 @@ class Grayscale extends Component {
         <div>
           This tool allows a user to upload an image, see a preview of it in
           grayscale, click create and receive their image with grayscale
-          applied.
+          applied. To get started, upload a file:
         </div>
+        <Upload />
       </div>
     );
   }

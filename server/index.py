@@ -4,10 +4,14 @@ that handles requests from the frontend
 """
 import os
 from flask import Flask, send_from_directory
+from upload import Upload
 
 CURRENT_DIR = os.path.dirname(__file__)
 client_folder = CURRENT_DIR + '/../client/build/'
 app = Flask(__name__, static_folder=client_folder)
+
+# account for imported request handlers
+app.register_blueprint(Upload)
 
 # Serve React App
 @app.route('/', defaults={'path': ''})
