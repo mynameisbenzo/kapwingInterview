@@ -45,10 +45,11 @@ def sign_upload():
 def upload_file(file_path):
   # get the file name from the file path
   key = file_path.rsplit('/', 1)[-1]
+  content_type = mimetypes.guess_type(key)[0]
 
   s3 = session.resource('s3')
   s3.meta.client.upload_file(
-      Filename=file_path, Bucket=AWS_BUCKET, Key=key)
+      Filename=file_path, Bucket=AWS_BUCKET, Key=key, ExtraArgs={'ContentType': content_type, 'ACL': "public-read"})
 
   url = 'https://kapwing-uploads.s3.amazonaws.com/' + key
   return url

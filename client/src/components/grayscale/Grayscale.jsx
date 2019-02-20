@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import Upload from "components/upload/Upload.jsx";
 import Preview from "./Preview.jsx";
-import CreateButton from "./CreateButton.jsx";
+import Create from "./Create.jsx";
 import styles from "./Grayscale.module.scss";
 
 class Grayscale extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: undefined
+      url: undefined
     };
   }
 
   handleFinish = url => {
     console.log("upload complete!", url);
     this.setState({
-      image: url
+      url
     });
   };
 
   render() {
+    const { url } = this.state;
+
     return (
       <div className={styles.container}>
         <h2>Grayscale an image</h2>
@@ -29,8 +31,12 @@ class Grayscale extends Component {
           applied. To get started, upload a file:
         </div>
         <Upload handleFinish={this.handleFinish} />
-        <Preview url={this.state.image} />
-        <CreateButton url={this.state.image} />
+        {url ? (
+          <>
+            <Preview url={url} />
+            <Create url={url} />
+          </>
+        ) : null}
       </div>
     );
   }

@@ -38,4 +38,4 @@ def make_grayscale():
   shutil.rmtree(dirpath)
 
   # return the uploaded image url back to client
-  return jsonify({'return_val': 'oh yeah!', 'url': url})
+  return jsonify({'grayscaledImage': url})
