@@ -16,6 +16,7 @@ Upload = Blueprint('upload', __name__)
 
 AWS_KEY = 'AKIAJFK2M47U5NJMIGOA'
 AWS_SECRET = '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'
+AWS_BUCKET = 'kapwing-uploads'
 
 session = boto3.Session(aws_access_key_id=AWS_KEY,
                         aws_secret_access_key=AWS_SECRET)
@@ -27,14 +28,27 @@ def sign_upload():
   object_name = request.args['objectName']
   content_type = mimetypes.guess_type(object_name)[0]
 
-  # create signed url
+  # create signed url for PUT request
   signed_url = s3.generate_presigned_url(
-      'put_object', {'Bucket': 'kapwing-uploads',
+      'put_object', {'Bucket': AWS_BUCKET,
                      'Key': object_name, 'ContentType': content_type, 'ACL': 'public-read'}, ExpiresIn=3600, HttpMethod='PUT')
 
-  # create signed url
-  # signed_url = s3.generate_presigned_post(
-  #     Bucket='kapwing-uploads', Key=object_name)
+  # reference URL for uploaded object
+  url = 'https://kapwing-uploads.s3.amazonaws.com/' + object_name
 
-  print(signed_url)
-  return jsonify({'signedUrl': signed_url})
+  print(url)
+  return jsonify({'signedUrl': signed_url, 'url': url, 'key': object_name})
+
+
+# uploads a file to s3 from flask server
+# returns the url to the uploaded file
+def upload_file(file_path):
+  # get the file name from the file path
+  key = file_path.rsplit('/', 1)[-1]
+
+  s3 = session.resource('s3')
+  s3.meta.client.upload_file(
+      Filename=file_path, Bucket=AWS_BUCKET, Key=key)
+
+  url = 'https://kapwing-uploads.s3.amazonaws.com/' + key
+  return url

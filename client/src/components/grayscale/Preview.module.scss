@@ -1,0 +1,17 @@
+.container {
+  margin-top: 20px;
+  max-width: 400px;
+}
+
+.header {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+
+  // grayscale image in css
+  filter: grayscale(100%);
+}

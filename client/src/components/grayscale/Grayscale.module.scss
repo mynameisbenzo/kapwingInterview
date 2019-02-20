@@ -4,11 +4,6 @@
   margin: 0px auto;
   width: 100%;
   max-width: 800px;
-}
-
-@media (max-width: $mobile) {
-  .container {
-    padding: 10px;
-    box-sizing: border-box;
-  }
+  padding: 10px;
+  box-sizing: border-box;
 }

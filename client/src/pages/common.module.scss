@@ -4,6 +4,8 @@
   margin: 0px auto;
   width: 100%;
   max-width: 800px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 @media (max-width: $mobile) {
