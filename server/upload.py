@@ -11,9 +11,7 @@ Upload = Blueprint('upload', __name__)
 # this really shouldn't be commited to github,
 # but hopefully you won't abuse this!
 # these credentials give read/write access to the kapwing-uploads bucket on s3
-# AWS_KEY = 'AKIAJOQ6PZTDFTFUXC6Q'
-# AWS_SECRET = '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'
-
+# all uploaded files get deleted within 30 days
 AWS_KEY = 'AKIAJFK2M47U5NJMIGOA'
 AWS_SECRET = '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'
 AWS_BUCKET = 'kapwing-uploads'

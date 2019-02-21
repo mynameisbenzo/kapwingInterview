@@ -1,5 +1,5 @@
 """
-Handles signing uploads correctly
+Handles grayscaling an image
 """
 from flask import Blueprint, request, jsonify
 from urllib.request import urlretrieve
