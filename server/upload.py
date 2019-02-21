@@ -8,12 +8,11 @@ import mimetypes
 Upload = Blueprint('upload', __name__)
 
 
-# this really shouldn't be commited to github,
+# this really shouldn't be commited to source control,
 # but hopefully you won't abuse this!
 # these credentials give read/write access to the kapwing-uploads bucket on s3
-# all uploaded files get deleted within 30 days
-AWS_KEY = 'AKIAJFK2M47U5NJMIGOA'
-AWS_SECRET = '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'
+AWS_KEY = 'AKIAJLGS65IRKQ4S5MZA'
+AWS_SECRET = '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'
 AWS_BUCKET = 'kapwing-uploads'
 
 session = boto3.Session(aws_access_key_id=AWS_KEY,
