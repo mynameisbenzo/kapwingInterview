@@ -63,6 +63,7 @@ class Upload extends Component {
             scrubFilename={filename => filename.replace(/[^\w\d_\-.]+/gi, "")}
             inputRef={cmp => (this.uploadInput = cmp)}
             autoUpload={true}
+            multiple
           />
         )}
       </div>
