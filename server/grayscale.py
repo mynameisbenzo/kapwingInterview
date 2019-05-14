@@ -2,14 +2,17 @@
 Handles grayscaling an image
 """
 from flask import Blueprint, request, jsonify
+import ssl
 from urllib.request import urlretrieve
 from upload import upload_file
 from PIL import Image
 import tempfile
 import shutil
 
-Grayscale = Blueprint('grayscale', __name__)
+# prevent any ssl issues
+ssl._create_default_https_context = ssl._create_unverified_context
 
+Grayscale = Blueprint('grayscale', __name__)
 
 @Grayscale.route("/api/grayscale", methods=['POST'])
 def make_grayscale():
