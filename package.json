@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "This repo contains code for the Kapwing technical interview project.",
   "scripts": {
-    "build": "cd client/ && npm install && npm run build",
-    "start": "(cd client/ && npm run start) & (cd server/ && FLASK_APP=index.py FLASK_DEBUG=1 pipenv run python3 -m flask run)"
+    "build": "(cd client/ && npm install && npm run build)",
+    "start-client": "(cd client/ && npm run start)",
+    "start-server": "(cd server/ && FLASK_APP=index.py FLASK_DEBUG=1 pipenv run python3 -m flask run)",
+    "start": "npm run start-client & npm run start-server"
   },
   "repository": {
     "type": "git",
