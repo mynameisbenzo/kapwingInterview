@@ -6,7 +6,7 @@ class Home extends Component {
   render() {
     return (
       <div className={styles.container}>
-        <h2>Kapwing Interview Project</h2>
+        <h2>Kapwing Interview Project by Lorenzo Hernandez III</h2>
         <p>Thank you for your interest in Kapwing!</p>
         <p>This repo is a simple website that contains two features:</p>
         <ul>
