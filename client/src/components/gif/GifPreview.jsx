@@ -5,37 +5,20 @@ import gifStyles from "./GifPreview.module.scss";
 function GifPreview(props) {
   const frame = React.useRef(0);
   const interval = React.useRef(null);
-  let [prevUrls, setPrevUrls] = React.useState(null);
-  let [gifFrames, setGifFrames] = React.useState([]);
-
-  if (props.urls !== prevUrls) {
-    setGifFrames(
-      props.urls.map((item) => {
-        const container = {};
-        container["time"] = 1000;
-        container["frame"] = item;
-        return container;
-      })
-    );
-    setPrevUrls(props.urls);
-  }
+  const [gifFrameTime, setGifFrameTime] = React.useState(500);
 
   const changePicture = () => {
-    if (gifFrames.length < 1) return;
-    document.getElementById("gifPreview").src = gifFrames[frame.current].frame;
+    if (props.urls.length < 1) return;
+    document.getElementById("gifPreview").src = props.urls[frame.current];
     frame.current++;
-    if (frame.current >= gifFrames.length) {
+    if (frame.current >= props.urls.length) {
       frame.current = 0;
     }
-    console.log(frame.current);
   };
 
-  if (gifFrames.length > 0) {
+  if (props.urls.length > 0) {
     clearInterval(interval.current);
-    interval.current = setInterval(
-      changePicture,
-      gifFrames[frame.current].time
-    );
+    interval.current = setInterval(changePicture, gifFrameTime);
   }
 
   React.useEffect(() => {

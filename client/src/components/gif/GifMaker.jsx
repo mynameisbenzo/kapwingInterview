@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import CreateGif from "./CreateGif";
 import Upload from "components/upload/Upload.jsx";
 import styles from "./GifMaker.module.scss";
 import GifPreview from "./GifPreview.jsx";
 
 function GifMaker(props) {
-  let [urls, setUrls] = React.useState([]);
+  const [urls, setUrls] = React.useState([]);
   const handleFinish = (url) => {
     setUrls((prevUrls) => [...prevUrls, url]);
   };
@@ -22,6 +23,7 @@ function GifMaker(props) {
       {/* {urls.length > 0 ? ( */}
       <>
         <GifPreview urls={urls} />
+        <CreateGif urls={urls} />
       </>
       {/* ) : null} */}
     </div>
