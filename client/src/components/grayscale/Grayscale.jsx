@@ -8,14 +8,14 @@ class Grayscale extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: undefined
+      url: undefined,
     };
   }
 
-  handleFinish = url => {
+  handleFinish = (url) => {
     console.log("upload complete!", url);
     this.setState({
-      url
+      url,
     });
   };
 

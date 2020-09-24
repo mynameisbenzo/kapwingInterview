@@ -7,7 +7,7 @@ class Upload extends Component {
     super(props);
     this.state = {
       loading: false,
-      progress: 0
+      progress: 0,
     };
   }
 
@@ -18,11 +18,11 @@ class Upload extends Component {
     callback(file);
   };
 
-  onUploadError = e => {
+  onUploadError = (e) => {
     this.setState({ loading: false, progress: 0 });
   };
 
-  onUploadFinish = e => {
+  onUploadFinish = (e) => {
     // stop loading
     this.setState({ loading: false, progress: 0 });
 
@@ -32,9 +32,9 @@ class Upload extends Component {
     this.props.handleFinish(e.url);
   };
 
-  onUploadProgress = progress => {
+  onUploadProgress = (progress) => {
     this.setState({
-      progress
+      progress,
     });
   };
 
@@ -60,8 +60,8 @@ class Upload extends Component {
             onError={this.onUploadError}
             onFinish={this.onUploadFinish}
             contentDisposition="auto"
-            scrubFilename={filename => filename.replace(/[^\w\d_\-.]+/gi, "")}
-            inputRef={cmp => (this.uploadInput = cmp)}
+            scrubFilename={(filename) => filename.replace(/[^\w\d_\-.]+/gi, "")}
+            inputRef={(cmp) => (this.uploadInput = cmp)}
             autoUpload={true}
             multiple
           />
