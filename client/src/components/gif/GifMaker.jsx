@@ -20,12 +20,12 @@ function GifMaker(props) {
       <Upload handleFinish={(url) => handleFinish(url)} />
 
       {/* GIF maker implementation should start here */}
-      {/* {urls.length > 0 ? ( */}
-      <>
-        <GifPreview urls={urls} />
-        <CreateGif urls={urls} />
-      </>
-      {/* ) : null} */}
+      {urls.length > 0 ? (
+        <>
+          <GifPreview urls={urls} />
+          <CreateGif urls={urls} />
+        </>
+      ) : null}
     </div>
   );
 }
