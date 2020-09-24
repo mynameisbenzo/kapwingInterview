@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import gifStyles from "./GifPreview.module.scss";
 import styles from "../grayscale/Create.module.scss";
 
@@ -52,7 +52,7 @@ function CreateGifButton(props) {
     else
       return (
         <>
-          <div className={styles.header}>Final image:</div>
+          <div className={styles.header}>GIF result:</div>
           <img
             src={gifResult.gif}
             alt="GIF Final"

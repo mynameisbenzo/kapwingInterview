@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import CreateGif from "./CreateGif";
 import Upload from "components/upload/Upload.jsx";
 import styles from "./GifMaker.module.scss";
