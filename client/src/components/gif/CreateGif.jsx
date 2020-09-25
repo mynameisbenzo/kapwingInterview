@@ -11,10 +11,8 @@ function CreateGifButton(props) {
   const createGif = () => {
     const body = {
       urls: props.urls,
+      gifFrameTime: props.gifFrameTime,
     };
-
-    console.log(props.urls);
-    console.log(body);
 
     setGifResult({
       loading: true,
@@ -31,7 +29,6 @@ function CreateGifButton(props) {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log(result);
           setGifResult({
             gif: result.gifResult,
             loading: false,
@@ -54,7 +51,7 @@ function CreateGifButton(props) {
         <>
           <div className={styles.header}>GIF result:</div>
           <img
-            src={gifResult.gif}
+            src={gifResult.gif + "?" + new Date().getTime()}
             alt="GIF Final"
             className={gifStyles.gifFrame}
           />

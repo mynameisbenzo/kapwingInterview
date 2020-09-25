@@ -5,11 +5,17 @@ import styles from "./GifMaker.module.scss";
 import GifPreview from "./GifPreview.jsx";
 
 function GifMaker(props) {
+  const [gifFrameTime, setGifFrameTime] = React.useState(500);
   const [urls, setUrls] = React.useState([]);
   const handleFinish = (url) => {
     setUrls((prevUrls) => [...prevUrls, url]);
   };
-
+  document.addEventListener("deleted-frame", function (e) {
+    setUrls(e.detail);
+  });
+  document.addEventListener("update-frametime", function (e) {
+    setGifFrameTime(e.detail);
+  });
   return (
     <div className={styles.container}>
       <h2>Create a GIF</h2>
@@ -22,8 +28,8 @@ function GifMaker(props) {
       {/* GIF maker implementation should start here */}
       {urls.length > 0 ? (
         <>
-          <GifPreview urls={urls} />
-          <CreateGif urls={urls} />
+          <GifPreview urls={urls} gifFrameTime={gifFrameTime} />
+          <CreateGif urls={urls} gifFrameTime={gifFrameTime} />
         </>
       ) : null}
     </div>

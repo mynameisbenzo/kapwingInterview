@@ -8,3 +8,35 @@
   height: 300px;
   width: 300px;
 }
+.frameHolder {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 150px;
+  width: 75vw;
+  border-radius: 10px;
+  box-shadow: 0 0px 10px #dcdcdc inset;
+}
+.frameItem {
+  display: inline-block;
+  list-style-type: none;
+}
+.frame {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.deleteButton {
+  position: relative;
+  left: -25px;
+  z-index: 10;
+  top: -102px;
+  border-radius: 50px;
+  background-color: #ff6666;
+  border-color: red;
+  color: white;
+  font-weight: 900;
+  font-size: 17px;
+}

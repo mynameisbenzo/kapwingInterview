@@ -19,6 +19,9 @@ Gif = Blueprint('gif', __name__)
 def make_gif():
   req_data = request.get_json()
   urls = req_data['urls']
+  frameTime = req_data['gifFrameTime']
+  print(frameTime)
+#   print("cat")
   dirpath = tempfile.mkdtemp()
 
   original_images = []
@@ -38,7 +41,7 @@ def make_gif():
     image = image.resize(size)
     images.append(image)
   img.save(fp=gif_result, format="GIF", append_images=images,
-           save_all=True, duration=500, loop=0)
+           save_all=True, duration=frameTime, loop=0)
 
   url = upload_file(gif_result)
   shutil.rmtree(dirpath)
