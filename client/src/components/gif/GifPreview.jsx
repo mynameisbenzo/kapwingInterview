@@ -130,7 +130,8 @@ function GifPreview(props) {
         <button onClick={decreaseInterval}>&lt;</button>
         <button onClick={increaseInterval}>&gt;</button>
       </div>
-      <h2>Reorder/Remove frames:</h2>
+      <h2>Drag to reorder</h2>
+      <h2>Click X to remove frame</h2>
       <div id="list" className={gifStyles.frameHolder}></div>
     </div>
   );
